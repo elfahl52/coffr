@@ -7,7 +7,7 @@
     <title>Login | Coffee House</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-        /* تعريف الألوان والألوان المفضلة مثل أمازون */
+        
         
          :root {
             --amazon-yellow: #FF9900;
@@ -25,7 +25,7 @@
             font-family: "Open Sans", sans-serif;
             margin: 0;
         }
-        /* الحاوية الرئيسية للتسجيل */
+   
         
         .login-container {
             background-color: rgba(255, 255, 255, 0.95);
@@ -62,7 +62,7 @@
             border-color: var(--amazon-yellow);
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        /* زر تسجيل الدخول */
+      
         
         .login-container button {
             width: 100%;
@@ -75,7 +75,7 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        /* تأثير عند تمرير الفأرة على الزر */
+      
         
         .login-container button:hover {
             background-color: var(--amazon-blue);
@@ -88,7 +88,7 @@
             display: none;
             animation: errorMessage 0.5s ease-out;
         }
-        /* تأثير الرسالة عند ظهور الخطأ */
+    
         
         @keyframes errorMessage {
             0% {
@@ -100,7 +100,7 @@
                 transform: translateY(0);
             }
         }
-        /* روابط أسفل النموذج */
+        
         
         .login-container .footer-links {
             text-align: center;
@@ -127,7 +127,7 @@
             background-color: var(--amazon-yellow);
             margin: 0 auto 1.5rem;
         }
-        /* تصميم الشريط العلوي */
+      
         
         .navbar {
             width: 100%;
@@ -163,7 +163,7 @@
         .navbar ul li a:hover {
             color: var(--amazon-yellow);
         }
-        /* استجابة للموبايل */
+
         
         @media (max-width: 500px) {
             .login-container {
@@ -181,7 +181,7 @@
 </head>
 
 <body>
-    <!-- شريط التنقل -->
+    
     <header id="header">
         <div class="navbar">
             <img class="logo" src="./logo.png" alt="Coffee House Logo" />
@@ -193,7 +193,7 @@
         </div>
     </header>
 
-    <!-- حاوية تسجيل الدخول -->
+    
     <div class="login-container">
         <div class="avatar"></div>
         <h2>تسجيل الدخول</h2>
@@ -202,7 +202,7 @@
         <input type="password" id="password" placeholder="كلمة المرور" />
         <button onclick="handleLogin()">تسجيل الدخول</button>
 
-        <!-- روابط للتسجيل أو استعادة كلمة المرور -->
+        
         <div class="footer-links">
             <a href="signup.html">إنشاء حساب جديد</a> |
             <a href="forgot-password.html">نسيت كلمة المرور؟</a>
@@ -221,7 +221,7 @@
                 return;
             }
 
-            // محاكاة التحقق
+        
             if (username === "admin" && password === "1234") {
                 alert("تم تسجيل الدخول بنجاح!");
                 window.location.href = "index.html";
