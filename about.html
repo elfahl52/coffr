@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Coffee House</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* تعريف الألوان والألوان المفضلة مثل أمازون */
+        
+         :root {
+            --amazon-yellow: #FF9900;
+            --amazon-dark-gray: #232f3e;
+            --amazon-light-gray: #eaeaea;
+            --amazon-blue: #146eb4;
+        }
+        
+        body {
+            background: url('./login-bg.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+        }
+        /* الحاوية الرئيسية للتسجيل */
+        
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            font-family: "Arial", sans-serif;
+        }
+        /* عنوان النموذج */
+        
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: "Oswald", sans-serif;
+            color: var(--amazon-dark-gray);
+            font-size: 24px;
+        }
+        
+        .login-container input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        /* تأثير عندما يتم التركيز على الحقول */
+        
+        .login-container input:focus {
+            border-color: var(--amazon-yellow);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        /* زر تسجيل الدخول */
+        
+        .login-container button {
+            width: 100%;
+            background-color: var(--amazon-yellow);
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        /* تأثير عند تمرير الفأرة على الزر */
+        
+        .login-container button:hover {
+            background-color: var(--amazon-blue);
+        }
+        
+        .login-container .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: errorMessage 0.5s ease-out;
+        }
+        /* تأثير الرسالة عند ظهور الخطأ */
+        
+        @keyframes errorMessage {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* روابط أسفل النموذج */
+        
+        .login-container .footer-links {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 14px;
+        }
+        
+        .login-container .footer-links a {
+            color: var(--amazon-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        
+        .login-container .footer-links a:hover {
+            color: var(--amazon-yellow);
+        }
+        
+        .login-container .avatar {
+            display: block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--amazon-yellow);
+            margin: 0 auto 1.5rem;
+        }
+        /* تصميم الشريط العلوي */
+        
+        .navbar {
+            width: 100%;
+            background-color: var(--amazon-dark-gray);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .navbar .logo {
+            height: 40px;
+            margin-right: 20px;
+        }
+        
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+        
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .navbar ul li a:hover {
+            color: var(--amazon-yellow);
+        }
+        /* استجابة للموبايل */
+        
+        @media (max-width: 500px) {
+            .login-container {
+                padding: 2rem;
+            }
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .navbar ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- شريط التنقل -->
+    <header id="header">
+        <div class="navbar">
+            <img class="logo" src="./logo.png" alt="Coffee House Logo" />
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">قائمة الطعام</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- حاوية تسجيل الدخول -->
+    <div class="login-container">
+        <div class="avatar"></div>
+        <h2>تسجيل الدخول</h2>
+        <div id="error-message" class="error">اسم المستخدم أو كلمة المرور غير صحيحة</div>
+        <input type="text" id="username" placeholder="اسم المستخدم" />
+        <input type="password" id="password" placeholder="كلمة المرور" />
+        <button onclick="handleLogin()">تسجيل الدخول</button>
+
+        <!-- روابط للتسجيل أو استعادة كلمة المرور -->
+        <div class="footer-links">
+            <a href="signup.html">إنشاء حساب جديد</a> |
+            <a href="forgot-password.html">نسيت كلمة المرور؟</a>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const errorMessage = document.getElementById("error-message");
+
+            if (!username || !password) {
+                errorMessage.textContent = "من فضلك املأ جميع الحقول";
+                errorMessage.style.display = "block";
+                return;
+            }
+
+            // محاكاة التحقق
+            if (username === "admin" && password === "1234") {
+                alert("تم تسجيل الدخول بنجاح!");
+                window.location.href = "index.html";
+            } else {
+                errorMessage.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة";
+                errorMessage.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
